@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="keywords" content="Alarm Clock App" />
+        <meta name="description" content="Your Description..." />
+        <title>Alarm Clock App</title>
+        <link
+            rel="stylesheet"
+            href="../libs/fontawesome-free-5.15.0-web/css/all.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        />
+        <link rel="stylesheet" href="resources/css/style.css" />
+        <link
+            rel="shortcut icon"
+            href="resources/img/favicon.ico"
+            type="image/x-icon"
+        />
+    </head>
+    <body>
+        <div class="wrapper_For_Alarm">
+            <i class="add fa fa-plus"></i>
+            <i class="clearAll fa fa-sync-alt"></i>
+            <i class="stop_alarm fa fa-pause"></i>
+            <div class="cover1"></div>
+
+            <div class="cover2">
+                <i class="cross fas fa-times"></i>
+                <div class="alarm_time_container">
+                    <input type="time" id="alarm_time_content" value="06:00" />
+                </div>
+                <div class="create_day">
+                    <input
+                        type="checkbox"
+                        name="alarm_date"
+                        class="select_alarm_day"
+                        value="0"
+                        id="sun"
+                    />
+                    <input
+                        type="checkbox"
+                        name="alarm_date"
+                        class="select_alarm_day"
+                        value="1"
+                        id="mon"
+                    />
+                    <input
+                        type="checkbox"
+                        name="alarm_date"
+                        class="select_alarm_day"
+                        value="2"
+                        id="tue"
+                    />
+                    <input
+                        type="checkbox"
+                        name="alarm_date"
+                        class="select_alarm_day"
+                        value="3"
+                        id="wed"
+                    />
+                    <input
+                        type="checkbox"
+                        name="alarm_date"
+                        class="select_alarm_day"
+                        value="4"
+                        id="thu"
+                    />
+                    <input
+                        type="checkbox"
+                        name="alarm_date"
+                        class="select_alarm_day"
+                        value="5"
+                        id="fri"
+                    />
+                    <input
+                        type="checkbox"
+                        name="alarm_date"
+                        class="select_alarm_day"
+                        value="6"
+                        id="sat"
+                    />
+
+                    <label class="days_in_week" for="sun">s</label>
+                    <label class="days_in_week" for="mon">m</label>
+                    <label class="days_in_week" for="tue">t</label>
+                    <label class="days_in_week" for="wed">w</label>
+                    <label class="days_in_week" for="thu">t</label>
+                    <label class="days_in_week" for="fri">f</label>
+                    <label class="days_in_week" for="sat">s</label>
+                </div>
+
+                <div class="options">
+                    <div class="option volume">
+                        <label for="volume">Volume</label>
+                        <input
+                            type="range"
+                            name="range"
+                            id="volume"
+                            min="0"
+                            max="100"
+                            value="80"
+                        />
+                    </div>
+                    <div class="option music">
+                        <label for="music">Tone</label>
+                        <select name="music" id="music">
+                            <option value="">Clock Chiming</option>
+                        </select>
+                    </div>
+                    <div class="option snooze">
+                        <label>Snooze</label>
+                        <div class="snooze_label">
+                            <select id="snooze_count">
+                                <option value="0" aria-checked="true">
+                                    0 Times
+                                </option>
+                                <option value="1">1 Times</option>
+                                <option value="3">3 Times</option>
+                                <option value="5">5 Times</option>
+                            </select>
+                            <select id="snooze_time">
+                                <option value="0" aria-checked="true" hidden>
+                                    0 Minutes
+                                </option>
+                                <option value="1">1 Minutes</option>
+                                <option value="3">3 Minutes</option>
+                                <option value="5">5 Minutes</option>
+                                <option value="10">10 Minutes</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="option name">
+                        <label for="name" style="font-size: 30px"
+                            >Alarm Name</label
+                        >
+                        <div class="input_name">
+                            <input
+                                type="text"
+                                name="name"
+                                id="name"
+                                required
+                                value="Alarm"
+                                placeholder="Alarm Name"
+                                maxlength="15"
+                            />
+                            <div class="underline_style"></div>
+                        </div>
+                    </div>
+                </div>
+                <input type="button" class="audio_done" value="Done" />
+            </div>
+        </div>
+        <script src="resources/js/main.js"></script>
+    </body>
+</html>

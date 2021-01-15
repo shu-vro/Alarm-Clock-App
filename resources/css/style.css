@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.wrapper_For_Alarm {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    background: url(../img/cool-clock.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.add,
+.clearAll,
+.cross, 
+.stop_alarm {
+    position: relative;
+    float: right;
+    margin: 5px 10px 0 20px;
+    font-size: 25px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 50%;
+    transition: 0.5s ease-in-out;
+}
+
+.stop_alarm {
+    display: none;
+}
+
+.stop_alarm.active {
+    display: inline-block;
+}
+
+.add:hover,
+.clearAll:hover,
+.cross:hover, 
+.stop_alarm:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.cover1 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 75px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.cover1 .item {
+    position: relative;
+    margin: 20px 50px;
+    height: 85px;
+    width: 60%;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.23);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-display: inherit;
+    flex-direction: column;
+    transition: 0.5s ease-out;
+    z-index: 2;
+}
+.cover1 .item:last-child {
+    margin-bottom: 300px;
+}
+
+.cover1 .item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    z-index: -1;
+}
+
+.cover1 .item:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.cover1 .item .row {
+    position: relative;
+    width: 100%;
+}
+
+.cover1 .item .row1 {
+    justify-content: space-between;
+}
+
+.cover1 .item .row1 .alarm_time {
+    font-size: 40px;
+}
+
+.cover1 .item .row1 .alarm_name {
+    position: relative;
+    left: 30px;
+    font-size: 20px;
+}
+
+.cover1 .item .row1 .edit,
+.cover1 .item .row1 .delete {
+    position: relative;
+    padding: 5px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    float: right;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.cover1 .item .row1 .edit:hover,
+.cover1 .item .row1 .delete:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.cover1 .item .row2 .day_name {
+    color: white;
+    letter-spacing: 10px;
+    font-weight: bold;
+}
+
+.cover1 .item .row2 .day_name.is_active {
+    color: crimson;
+}
+
+.cover2 {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background: url(../img/cool_clock.jpg) no-repeat center center;
+    background-size: cover;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    z-index: 3;
+    transition: 0.5s ease-in-out;
+}
+
+.cover1::-webkit-scrollbar,
+.cover2::-webkit-scrollbar {
+    width: 5px;
+}
+
+.cover1::-webkit-scrollbar-thumb,
+.cover2::-webkit-scrollbar-thumb {
+    width: 5px;
+    border-radius: 100px;
+    background: #555;
+}
+
+.cover2.on {
+    left: 0;
+}
+
+.alarm_time_container {
+    position: relative;
+    width: 100vw;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#alarm_time_content {
+    outline: none;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    min-width: 250px;
+    height: 125px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 50px;
+    transition: 0.5s ease-in-out;
+}
+
+#alarm_time_content:hover {
+    background: rgba(255, 255, 255, 0.4);
+    border: 10px solid rgba(172, 172, 172, 0.801);
+}
+
+.create_day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select_alarm_day {
+    display: none;
+}
+
+.create_day .days_in_week {
+    text-transform: uppercase;
+    letter-spacing: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.options {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+}
+
+.options .option {
+    position: relative;
+    margin: 20px 50px;
+    height: 85px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.23);
+    border-radius: 15px;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 35px;
+    transition: 0.5s ease-in-out;
+}
+
+.options .option::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    z-index: -1;
+}
+
+.options .option:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.options .option.volume input {
+    transform: scale(1.5);
+}
+
+.options .option.name .input_name {
+    position: relative;
+}
+
+.options .option.name input {
+    position: relative;
+    width: 200px;
+    height: 30px;
+    font-size: 25px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    text-align: center;
+}
+
+.option.name .underline_style {
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    background: dodgerblue;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    transition: 0.25s;
+}
+
+.option.name input:valid~.underline_style {
+    width: 100%;
+}
+
+.options .option.music select {
+    border: none;
+    outline: none;
+    background: linear-gradient(#333, #222);
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    width: 200px;
+    height: 40%;
+}
+
+.option.snooze .snooze_label select {
+    border: none;
+    outline: none;
+    background: #222;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    width: 110px;
+    height: 40%;
+}
+
+.audio_done {
+    position: relative;
+    float: right;
+    /* margin: 0 20px 10px 0; */
+    right: 20px;
+    bottom: 10px;
+    background: #48dfd1;
+    color: white;
+    padding: 10px 20px;
+    font-size: 25px;
+    border-radius: 10px;
+    border: 2px solid dodgerblue;
+    transition: 0.5s;
+}
+
+.audio_done:hover {
+    background: dodgerblue;
+    border: 2px solid blue;
+}
+
+#sun:checked ~ label[for="sun"] {
+    color: #ff0057;
+}
+
+#mon:checked ~ label[for="mon"] {
+    color: #ff0057;
+}
+
+#tue:checked ~ label[for="tue"] {
+    color: #ff0057;
+}
+
+#wed:checked ~ label[for="wed"] {
+    color: #ff0057;
+}
+
+#thu:checked ~ label[for="thu"] {
+    color: #ff0057;
+}
+
+#fri:checked ~ label[for="fri"] {
+    color: #ff0057;
+}
+
+#sat:checked ~ label[for="sat"] {
+    color: #ff0057;
+}
